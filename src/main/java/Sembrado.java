@@ -1,22 +1,55 @@
-import java.util.HashMap;
-import java.util.Map;
+import files.FileBrowser;
+
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
 
 public class Sembrado {
-    //Extencion de archivo
+    ArrayList<String> allDataSeeding;
     Map<String, String> ext;
-
+    Random r;
     Sembrado() {
+        allDataSeeding = new ArrayList<>();
         ext= new HashMap<>();
         ext.put("Desc", "Archivo de Texto");
         ext.put("Ext", ".txt");
         ext.put("Type", "TXT");
+        r = new Random();
     }
 
-    public void readFile(){
+    public void writeFile(){
 
     }
 
-    private void writeFile() {
+    private void  readFile() {
+        try {
+            List<String> listTxt = Files.readAllLines(Paths.get(new FileBrowser().openFile(ext)), StandardCharsets.UTF_8);
+            for(String rowTxt :listTxt) {
+               String columsRowTxt[]= rowTxt.split("\t");
+               List<String> dataSeeding = new ArrayList<>();
+               List<String> randomDataSeeding = new ArrayList<>();
+                for(int i =3;i<columsRowTxt.length;i++){
+                    int iteratorByAward = Integer.parseInt(columsRowTxt[i].substring(2));
+                    for (int j=0;j<iteratorByAward;j++){
+                        dataSeeding.add(columsRowTxt[i]);
+                    }
+                }
+
+                for(int i=0;i<Integer.parseInt(columsRowTxt[2]);i++){
+                    int randomNumber = r.nextInt(dataSeeding.size());
+                    randomDataSeeding.add(String.format("%05d",(i+1))+"\t"+columsRowTxt[0]+"\t"+columsRowTxt[1]+"\t"+dataSeeding.get(randomNumber).substring(0,1));
+                    dataSeeding.remove(randomNumber);
+                }
+
+                for (String all:randomDataSeeding){
+                    allDataSeeding.add(all);
+                }
+            }
+        }catch(IOException e){
+            e.printStackTrace();
+        }
 
     }
 }
