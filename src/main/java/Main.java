@@ -55,8 +55,12 @@ public class Main {
         }
     }
     public static void main(String[] args) {
-        Main m=new Main();
+        /*Main m=new Main();
         m.readFile();
-        m.writeFile();
+        m.writeFile();*/
+
+        Sembrado sembrado = new Sembrado();
+        sembrado.readFile();
+        sembrado.writeFile();
     }
 }
