@@ -68,6 +68,7 @@ public class Sembrado {
                 }
             }
         }catch(IOException e){
+            JOptionPane.showMessageDialog(null,e.getMessage());
             e.printStackTrace();
         }
 
