@@ -24,6 +24,7 @@ public class Sembrado {
 
     protected void writeFile() {
         try {
+            JOptionPane.showMessageDialog(null,"Selecciona la ruta donde se va a guardar");
             FileWriter fw = new FileWriter(new FileBrowser().saveAs().concat("/sembrado-sucursales-oblatos.txt"), Charset.forName("utf-8"));
             fw.write("FOLIO\tFOLIO_X_SUCURSAL\tUUID\tSUCURSAL\tPREMIO\tCORRECTA\tPREGUNTA\tR1\tR2\tR3\n");
             for (int i = 0; i < this.allDataSeeding.size(); i++) {
