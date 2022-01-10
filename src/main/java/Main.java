@@ -55,6 +55,7 @@ public class Main {
         }
     }
     public static void main(String[] args) {
+        //No ejecutar la clase Permutacion
         /*Main m=new Main();
         m.readFile();
         m.writeFile();*/
