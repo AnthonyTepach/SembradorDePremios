@@ -59,7 +59,7 @@ public class Sembrado {
                 for(int i=0;i<Integer.parseInt(columsRowTxt[2]);i++){
                     int randomNumber = r.nextInt(dataSeeding.size());
                     int randomQuestion = r.nextInt(questionsTxt.size());
-                    randomDataSeeding.add(String.format("%05d",(i+1))+"\t"+columsRowTxt[0]+"\t"+columsRowTxt[1]+"\t"+dataSeeding.get(randomNumber).substring(0,1)+"\t"+questionsTxt.get(randomQuestion));
+                    randomDataSeeding.add(String.format("%06d",(i+1))+"\t"+columsRowTxt[0]+"\t"+columsRowTxt[1]+"\t"+dataSeeding.get(randomNumber).substring(0,1)+"\t"+questionsTxt.get(randomQuestion));
                     dataSeeding.remove(randomNumber);
                 }
 
