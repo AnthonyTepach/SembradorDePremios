@@ -28,7 +28,7 @@ public class Sembrado {
             FileWriter fw = new FileWriter(new FileBrowser().saveAs().concat("/sembrado-sucursales-oblatos.txt"), Charset.forName("utf-8"));
             fw.write("FOLIO\tFOLIO_X_SUCURSAL\tUUID\tSUCURSAL\tPREMIO\tCORRECTA\tPREGUNTA\tR1\tR2\tR3\n");
             for (int i = 0; i < this.allDataSeeding.size(); i++) {
-                fw.write(String.format("%05d",(i+1))+"\t"+this.allDataSeeding.get(i));
+                fw.write(String.format("%06d",(i+1))+"\t"+this.allDataSeeding.get(i));
                 fw.write("\n");
             }
             fw.close();
